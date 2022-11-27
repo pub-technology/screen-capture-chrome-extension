@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Screen Capture Chrome Extension",
+  "description": "Screen Capture Chrome Extension",
+  "version": "0.0.1",
+  "icons": {
+    "16": "icon-16.png",
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "background",
+    "<all_urls>",
+    "history",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "tabs",
+    "identity",
+    "identity.email",
+    "management",
+    "enterprise.deviceAttributes",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "js": [
+        "contentScripts.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "index.js",
+    "type": "module"
+  },
+  "incognito": "spanning"
+}
